@@ -7,9 +7,8 @@ const Typing = () => {
       <div className="font-lg text-lg text-teal-500">
         <ReactTyped
           strings={[
-            "Software Developer",
-            "Frontend Developer",
-            "Fullstack Developer",
+            "Data Scientist",
+            "Backend Developer",
           ]}
           typeSpeed={70}
           backSpeed={30}

@@ -9,64 +9,84 @@ function Certificates() {
     const cards = [
       {
         "id": 1,
-        "category": "group",
-        "image": "https://cdn.dribbble.com/users/1997192/screenshots/15359806/dribbble_final_post.png?compress=1&resize=400x300",
-        "title": "Nike Website Clone",
-        "content": "The Nike Website Clone is a full-stack application that replicates the essential features of the Nike online store. Built using React and Node.js, it provides a seamless shopping experience with product browsing, cart functionality, and secure checkout.",
-        "technologies": ["HTML", "JavaScript", "React", "Node.js", "CSS"],
+        "category": "individual",
+        "image": "https://drive.google.com/file/d/1OubbBISLQi8LkaWd3Mto6La9xX2SLqc3/view?usp=drive_link",
+        "title": "Filler",
+        "content": "An AI-powered application capable of hallucinating and restoring color to grayscale images. By training a Convolutional Neural Network (CNN) on large datasets of images, the model learns to associate grayscale patterns and textures with their probable color values.How it Works: The system uses the LAB color space instead of RGB.Input: The network takes the 'L' channel (Lightness/Grayscale) as input.Processing: The model analyzes textures (e.g., recognizing grass, sky, or skin) to predict the missing components.Output: It generates the 'a' and 'b' channels (the color information).Result: The predicted color channels are merged with the original lightness channel to produce a vibrant, colorized image without losing the original details.Key Features:Automatic conversion of B&W legacy photos to color.Utilizes deep learning to understand context (e.g., sky is blue, foliage is green).Preserves the structural integrity and resolution of the original image.",
+        "technologies": ["HTML", "JavaScript", "Python", "CSS"],
         "links": [
           {
             "icon": <FaGithub />,
             "name": "Github",
-            "link": "https://github.com/samjoshua2002/Nike"
+            "link": "https://github.com/spidy-senpai/filler.git"
           },
           {
             "icon": <CiShare1 />,
             "name": "Visit",
-            "link": "https://nike-red-omega.vercel.app/"
+            "link": "https://filler-cicu.vercel.app/"
           }
         ]
       },
-      {
-        "id": 2,
-        "category": "individual",
-        "image": "https://s3-alpha.figma.com/hub/file/1271832110/cdcd2381-7724-4076-8bd6-97dbc4e30ac7-cover.png",
-        "title": "YouTube Clone",
-        "content": "This project is a full-stack application that replicates core features of YouTube, allowing users to search, watch, and upload videos. It leverages React for the front-end, with a seamless user experience for browsing video content and interacting with the platform.",
-        "technologies": ["React", "Bootstrap", "Firebase"], // Change to array
-        "links": [
-          {
-            "icon": <FaGithub />,
-            "name": "Github",
-            "link": "https://github.com/shakeen17/Paradise-Restaurant"
-          },
-          {
-            "icon": <CiShare1 />,
-            "name": "Visit",
-            "link": "https://connect-us-sage.vercel.app/"
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "category": "individual",
-        "image": "https://cdn.dribbble.com/userupload/3361221/file/original-1a631dceb9ecafec254c29be25d5225d.jpg?resize=1024x768&vertical=center",
-        "title": "Trendix",
-        "content": "Trendix is a full-stack e-commerce platform that provides a seamless shopping experience. It is built using React for the front-end, Tailwind CSS for styling, and Spring Boot for the back-end, ensuring a robust and scalable architecture.",
-        "technologies": ["React", "Tailwind CSS", "Spring Boot", "Material UI"],
-        "links": [
-          {
-            "icon": <FaGithub />,
-            "name": "Github",
-            "link": "https://github.com/shakeen17/Paradise-Restaurant"
-          },
-          {
-            "icon": <CiShare1 />,
-            "name": "Visit",
-            "link": "https://trendix-seven.vercel.app/"
-          }
-        ]
-      }
+      // {
+      //   "id": 2,
+      //   "category": "individual",
+      //   "image": "https://s3-alpha.figma.com/hub/file/1271832110/cdcd2381-7724-4076-8bd6-97dbc4e30ac7-cover.png",
+      //   "title": "YouTube Clone",
+      //   "content": "This project is a full-stack application that replicates core features of YouTube, allowing users to search, watch, and upload videos. It leverages React for the front-end, with a seamless user experience for browsing video content and interacting with the platform.",
+      //   "technologies": ["React", "Bootstrap", "Firebase"], // Change to array
+      //   "links": [
+      //     {
+      //       "icon": <FaGithub />,
+      //       "name": "Github",
+      //       "link": "https://github.com/shakeen17/Paradise-Restaurant"
+      //     },
+      //     {
+      //       "icon": <CiShare1 />,
+      //       "name": "Visit",
+      //       "link": "https://connect-us-sage.vercel.app/"
+      //     }
+      //   ]
+      // },
+      // {
+      //   "id": 3,
+      //   "category": "individual",
+      //   "image": "https://cdn.dribbble.com/userupload/3361221/file/original-1a631dceb9ecafec254c29be25d5225d.jpg?resize=1024x768&vertical=center",
+      //   "title": "Trendix",
+      //   "content": "Trendix is a full-stack e-commerce platform that provides a seamless shopping experience. It is built using React for the front-end, Tailwind CSS for styling, and Spring Boot for the back-end, ensuring a robust and scalable architecture.",
+      //   "technologies": ["React", "Tailwind CSS", "Spring Boot", "Material UI"],
+      //   "links": [
+      //     {
+      //       "icon": <FaGithub />,
+      //       "name": "Github",
+      //       "link": "https://github.com/shakeen17/Paradise-Restaurant"
+      //     },
+      //     {
+      //       "icon": <CiShare1 />,
+      //       "name": "Visit",
+      //       "link": "https://trendix-seven.vercel.app/"
+      //     }
+      //   ]
+      // },
+      // {
+      //   "id": 4,
+      //   "category": "individual",
+      //   "image": "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=500&h=400",
+      //   "title": "Filler",
+      //   "content": "This project provides a comprehensive solution for [project purpose]. It showcases modern development practices with a clean, intuitive user interface. The application demonstrates proficiency in full-stack development with seamless integration between frontend and backend components.",
+      //   "technologies": ["React", "JavaScript", "CSS", "HTML", "Node.js"],
+      //   "links": [
+      //     {
+      //       "icon": <FaGithub />,
+      //       "name": "Github",
+      //       "link": "https://github.com/spidy-senpai/filler.git"
+      //     },
+      //     {
+      //       "icon": <CiShare1 />,
+      //       "name": "Live Demo",
+      //       "link": "#"
+      //     }
+      //   ]
+      // }
       
     ];
 

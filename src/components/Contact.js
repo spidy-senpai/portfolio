@@ -6,6 +6,7 @@ import { MdMailOutline } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa6";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Details } from '../constants/contents';
 
 
 function Contact() {
@@ -13,8 +14,16 @@ function Contact() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    const Details = [
-        { icons: <MdMailOutline />, name: "Email", sub: "samjoshuacs2002@gmail.com", content: "Write to Me", link: "mailto:samjoshuacs2002@gmail.com" },
+    const emailEntries = (Details.emails && Details.emails.length > 0 ? Details.emails : [Details.email || '']).filter(Boolean).map((e) => ({
+        icons: <MdMailOutline />,
+        name: 'Email',
+        sub: e,
+        content: 'Write to Me',
+        link: `mailto:${e}`,
+    }));
+
+    const contactDetails = [
+        ...emailEntries,
         { icons: <MdMailOutline />, name: "LinkedIn", sub: "Sam Joshua P", content: "Let's Connect", link: "https://www.linkedin.com/in/sam-joshua-03082002p/" }
     ];
 
@@ -30,6 +39,7 @@ function Contact() {
                 name: name.trim(),
                 email: email.trim(),
                 message: message.trim(),
+                recipientEmail: 'witharyanimprove@gmail.com',
             }, {
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -57,7 +67,7 @@ function Contact() {
                 <div>
                     <h2 className='text-2xl font-semibold mb-4 text-center'>Talk To Me</h2>
                     <ul className='items-center space-y-4 w-80 mx-auto'>
-                        {Details.map((detail, index) => (
+                        {contactDetails.map((detail, index) => (
                             <li key={index} className='flex flex-col items-center text-center border border-gray-300 w-full md:w-80 p-4 rounded-lg'>
                                 <p className='text-2xl mb-2'>{detail.icons}</p>
                                 <p className='font-semibold'>{detail.name}</p>
