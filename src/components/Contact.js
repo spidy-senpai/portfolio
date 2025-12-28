@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
-import CustomTextField from './TextField'; // Adjust the path if needed
+import CustomTextField from './TextField';
 import { IoSend } from "react-icons/io5";
 import { MdMailOutline } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa6";
@@ -8,14 +7,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Details } from '../constants/contents';
 
-// Initialize EmailJS
-emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Get this from https://dashboard.emailjs.com
-
-
 function Contact() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // CHANGE THIS TO YOUR EMAIL
+    const YOUR_EMAIL = 'witharyanimprove@gmail.com';
 
     const emailEntries = (Details.emails && Details.emails.length > 0 ? Details.emails : [Details.email || '']).filter(Boolean).map((e) => ({
         icons: <MdMailOutline />,
@@ -32,44 +31,65 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('✅ handleSubmit called!');
-        console.log('Form data:', { name, email, message });
         
         if (!name || !email || !message) {
-            console.log('❌ Form incomplete');
-            toast.info("Fill the Details")
+            toast.warning("Please fill in all fields");
             return;
         }
 
-        try {
-            console.log('✅ Sending message:', { name, email, message });
-            const response = await axios.post('https://emailservice-1-njl6.onrender.com/contact', {
-                name: name.trim(),
-                email: email.trim(),
-                message: message.trim(),
-                recipientEmail: 'witharyanimprove@gmail.com',
-            }, {
-                headers: { 'Content-Type': 'application/json' },
-            });
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            toast.error("Please enter a valid email address");
+            return;
+        }
+
+        setIsSubmitting(true);
         
-            console.log('API Response:', response);
-            if (response.status === 200) {
-                toast.success('Message sent successfully!');
+        try {
+            const formData = new FormData();
+            formData.append('name', name.trim());
+            formData.append('email', email.trim());
+            formData.append('message', message.trim());
+
+            const response = await fetch(`https://formsubmit.co/${YOUR_EMAIL}`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                toast.success('✅ Message sent successfully!');
                 setName('');
                 setEmail('');
                 setMessage('');
+            } else {
+                throw new Error('Failed to send message');
             }
         } catch (error) {
-            console.error('Error submitting the form:', error);
-            console.error('Error Response:', error.response?.data);
-            const errorMessage = error.response?.data?.message || error.response?.data || 'Failed to send your message. Please try again later.';
-            toast.error(typeof errorMessage === 'string' ? errorMessage : 'Failed to send your message. Please try again later.');
+            console.error('Error:', error);
+            toast.error('Failed to send message. Please try again or email me directly.');
+        } finally {
+            setIsSubmitting(false);
         }
-    }        
+    };
 
     return (
         <div className='max-w-4xl mx-auto p-5'>
-            <ToastContainer/>
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <div className='text-center'>
                 <h1 className='text-3xl font-semibold'>Contact Me</h1>
                 <p className='text-sm pt-2'>Get In Touch</p>
@@ -103,6 +123,7 @@ function Contact() {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             rows={1}
+                            disabled={isSubmitting}
                         />
                         <CustomTextField
                             id="email"
@@ -110,6 +131,7 @@ function Contact() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             rows={1}
+                            disabled={isSubmitting}
                         />
                         <CustomTextField
                             id="message"
@@ -118,13 +140,16 @@ function Contact() {
                             onChange={(e) => setMessage(e.target.value)}
                             multiline
                             rows={3}
+                            disabled={isSubmitting}
                         />
 
                         <button
                             type="submit"
-                            className='flex items-center justify-center text-lg border border-black rounded-lg p-3 w-48 gap-2 bg-black text-white hover:bg-gray-800 transition-colors duration-300 mx-auto'
+                            disabled={isSubmitting}
+                            className='flex items-center justify-center text-lg border border-black rounded-lg p-3 w-48 gap-2 bg-black text-white hover:bg-gray-800 transition-colors duration-300 mx-auto disabled:opacity-50 disabled:cursor-not-allowed'
                         >
-                            Submit <IoSend className='ml-2' />
+                            {isSubmitting ? 'Sending...' : 'Submit'} 
+                            {!isSubmitting && <IoSend className='ml-2' />}
                         </button>
                     </form>
                 </div>
