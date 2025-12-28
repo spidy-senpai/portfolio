@@ -29,13 +29,17 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('✅ handleSubmit called!');
+        console.log('Form data:', { name, email, message });
+        
         if (!name || !email || !message) {
+            console.log('❌ Form incomplete');
             toast.info("Fill the Details")
             return;
         }
 
         try {
-            console.log('Sending message:', { name, email, message });
+            console.log('✅ Sending message:', { name, email, message });
             const response = await axios.post('https://emailservice-1-njl6.onrender.com/contact', {
                 name: name.trim(),
                 email: email.trim(),
