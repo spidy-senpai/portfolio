@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 import CustomTextField from './TextField'; // Adjust the path if needed
 import { IoSend } from "react-icons/io5";
 import { MdMailOutline } from "react-icons/md";
@@ -7,6 +7,9 @@ import { FaArrowRight } from "react-icons/fa6";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Details } from '../constants/contents';
+
+// Initialize EmailJS
+emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Get this from https://dashboard.emailjs.com
 
 
 function Contact() {
