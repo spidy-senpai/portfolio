@@ -47,8 +47,8 @@ export const Links = [
   };
 
   export const icons = [
-    { icon: <FaLinkedin />, key: 'linkedin', link: '#' },
-    // { icon: <FaLinkedin />, key: 'linkedin', link: 'https://www.linkedin.com/in/sam-joshua-03082002p/' },
+    { icon: <FaLinkedin />, key: 'linkedin', link: 'https://www.linkedin.com/in/aman-aryan-2625b3395' },
+    // { icon: <FaLinkedin />, key: 'linkedin', link: 'https://www.linkedin.com/in/aman-aryan-2625b3395' },
     { icon: <SiLeetcode />, key: 'leetcode', link: 'https://leetcode.com/u/spidy_senpai/' },
     { icon: <FaGithub />, key: 'github', link: 'https://github.com/spidy-senpai' }
   ];

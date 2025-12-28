@@ -33,7 +33,7 @@ function Home() {
           <p className="mt-2">{Details.quotes}</p>
 
           <a
-            href="/Sam.pdf"
+            href="/Aman Aryan.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download
@@ -79,10 +79,10 @@ function Home() {
             <p className="mt-4">{Details.quotes}</p>
 
             <a
-              href="\Sam.pdf"
+              href="/Aman Aryan.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              download="Sam_Joshua_Resume.pdf"
+              download="Aman_Aryan_Resume.pdf"
               className="flex items-center gap-2 text-lg border border-black p-3 rounded-2xl mt-8 bg-black text-white"
             >
               Download Resume <IoDocumentTextOutline />

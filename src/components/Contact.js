@@ -24,7 +24,7 @@ function Contact() {
 
     const contactDetails = [
         ...emailEntries,
-        { icons: <MdMailOutline />, name: "LinkedIn", sub: "Sam Joshua P", content: "Let's Connect", link: "https://www.linkedin.com/in/sam-joshua-03082002p/" }
+        { icons: <MdMailOutline />, name: "LinkedIn", sub: "Aman Aryan", content: "Let's Connect", link: "https://www.linkedin.com/in/aman-aryan-2625b3395" }
     ];
 
     const handleSubmit = async (e) => {
@@ -35,6 +35,7 @@ function Contact() {
         }
 
         try {
+            console.log('Sending message:', { name, email, message });
             const response = await axios.post('https://emailservice-1-njl6.onrender.com/contact', {
                 name: name.trim(),
                 email: email.trim(),
@@ -44,6 +45,7 @@ function Contact() {
                 headers: { 'Content-Type': 'application/json' },
             });
         
+            console.log('API Response:', response);
             if (response.status === 200) {
                 toast.success('Message sent successfully!');
                 setName('');
@@ -51,8 +53,10 @@ function Contact() {
                 setMessage('');
             }
         } catch (error) {
-            console.error('Error submitting the form:', error.response || error);
-            toast.error(error.response?.data || 'Failed to send your message. Please try again later.');
+            console.error('Error submitting the form:', error);
+            console.error('Error Response:', error.response?.data);
+            const errorMessage = error.response?.data?.message || error.response?.data || 'Failed to send your message. Please try again later.';
+            toast.error(typeof errorMessage === 'string' ? errorMessage : 'Failed to send your message. Please try again later.');
         }
     }        
 

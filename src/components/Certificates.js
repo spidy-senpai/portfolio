@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaGithub } from "react-icons/fa";
 import { CiShare1 } from "react-icons/ci";
 import Badge from './Badge.js'; // Adjust the import path as necessary
+import projectImage from './images/251227_13h55m19s_screenshot.png';
 
 function Certificates() {
     const [select, setSelect] = useState('All');
@@ -10,9 +11,9 @@ function Certificates() {
       {
         "id": 1,
         "category": "individual",
-        "image": "https://drive.google.com/file/d/1OubbBISLQi8LkaWd3Mto6La9xX2SLqc3/view?usp=drive_link",
+        "image": projectImage,
         "title": "Filler",
-        "content": "An AI-powered application capable of hallucinating and restoring color to grayscale images. By training a Convolutional Neural Network (CNN) on large datasets of images, the model learns to associate grayscale patterns and textures with their probable color values.How it Works: The system uses the LAB color space instead of RGB.Input: The network takes the 'L' channel (Lightness/Grayscale) as input.Processing: The model analyzes textures (e.g., recognizing grass, sky, or skin) to predict the missing components.Output: It generates the 'a' and 'b' channels (the color information).Result: The predicted color channels are merged with the original lightness channel to produce a vibrant, colorized image without losing the original details.Key Features:Automatic conversion of B&W legacy photos to color.Utilizes deep learning to understand context (e.g., sky is blue, foliage is green).Preserves the structural integrity and resolution of the original image.",
+        "content": "Concept: Uses Deep Learning to transform grayscale photos into realistic color images.\nTech Stack: Python, Flask, OpenCV, and NumPy.\nExecution: Implemented a Pre-trained CNN to predict color (chrominance) based on image textures, integrated via a lightweight Flask API.\nResult: High-speed, automated restoration that preserves 100% of the original photo’s detail.",
         "technologies": ["HTML", "JavaScript", "Python", "CSS"],
         "links": [
           {

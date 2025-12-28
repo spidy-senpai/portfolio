@@ -20,9 +20,9 @@ const IconWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const achievements = [
-  { icon: <EmojiEvents />, name: "Experience", exp: "2+ Months" },
+  // { icon: <EmojiEvents />, name: "Experience", exp: "2+ Months" },
   { icon: <Work />, name: "Completed", exp: "2+ Projects" },
-  { icon: <School />, name: "Received", exp: "3+ Certifications" }
+  // { icon: <School />, name: "Received", exp: "3+ Certifications" }
 ];
 
 const containerVariants = {

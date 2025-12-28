@@ -8,7 +8,7 @@ const Typing = () => {
         <ReactTyped
           strings={[
             "Data Scientist",
-            "Backend Developer",
+            "Machine Learning Engineer",
           ]}
           typeSpeed={70}
           backSpeed={30}
