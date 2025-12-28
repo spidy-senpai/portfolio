@@ -5,10 +5,7 @@ import TextField from '@mui/material/TextField';
 export default function CustomTextField({ id, label, value, onChange, multiline, rows }) {
   return (
     <Box
-      component="form"
       sx={{ '& .MuiTextField-root': { m: 1, width: '40ch' } }}
-      noValidate
-      autoComplete="off"
     >
       <TextField
         id={id}
